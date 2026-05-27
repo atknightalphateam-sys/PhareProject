@@ -129,5 +129,4 @@ Donne les indices (ID) de TOUS les documents pertinents sans limite. Si rien ne 
         return jsonify({"message": "Probleme technique, reessaie."})
 
 if __name__ == "__main__":
-   # Par ceci :
-app.run(host="0.0.0.0", port=5000, debug=False)
+ app.run(host="0.0.0.0", port=5000, debug=False)
