@@ -118,7 +118,7 @@ client.on("message", async (msg) => {
 
 async function demanderAPhare(demande) {
   try {
-    const res = await fetch("http://localhost:5000/chercher", {
+    const res = await fetch("https://phareproject.onrender.com/chercher", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ demande }),
