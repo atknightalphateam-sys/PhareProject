@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phare — Upload</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      main {
+        min-height: 100vh;
+        padding: 100px 60px 80px;
+        display: flex;
+        justify-content: center;
+      }
+      .upload-container {
+        width: 100%;
+        max-width: 600px;
+      }
+      .page-header {
+        margin-bottom: 48px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid var(--gray-mid);
+      }
+      .page-title-label {
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gray-text);
+        margin-bottom: 8px;
+      }
+      .page-title {
+        font-size: 36px;
+        font-weight: 700;
+      }
+
+      .drop-zone {
+        border: 1px dashed var(--gray-mid);
+        padding: 48px;
+        text-align: center;
+        cursor: pointer;
+        color: var(--gray-text);
+        transition: all 0.2s;
+        margin-bottom: 32px;
+        position: relative;
+      }
+      .drop-zone:hover {
+        border-color: var(--black);
+        color: var(--black);
+      }
+      .drop-zone.dragover {
+        border-color: var(--black);
+        background: var(--gray-light);
+        color: var(--black);
+      }
+      .drop-zone i {
+        font-size: 32px;
+        display: block;
+        margin-bottom: 16px;
+      }
+      .drop-zone .drop-text {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .drop-zone .drop-sub {
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+      .drop-zone input[type="file"] {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+      }
+
+      .err-fichier {
+        font-size: 12px;
+        color: #c0392b;
+        margin-top: -24px;
+        margin-bottom: 16px;
+        display: none;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 24px;
+      }
+
+      .form-divider {
+        border: none;
+        border-top: 1px solid var(--gray-mid);
+        margin: 28px 0;
+      }
+
+      .submit-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 36px;
+        padding-top: 28px;
+        border-top: 1px solid var(--gray-mid);
+      }
+      .back-link {
+        font-size: 13px;
+        color: var(--gray-text);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: color 0.2s;
+        cursor: pointer;
+        background: none;
+        border: none;
+        text-decoration: none;
+      }
+      .back-link:hover {
+        color: var(--black);
+      }
+
+      .msg {
+        padding: 14px 18px;
+        font-size: 13px;
+        margin-bottom: 24px;
+        display: none;
+        border-radius: 0;
+      }
+      .msg-success {
+        background: #f0fdf4;
+        border: 1px solid #86efac;
+        color: #166534;
+      }
+      .msg-error-box {
+        background: #fef2f2;
+        border: 1px solid #fca5a5;
+        color: #991b1b;
+      }
+
+      @media (max-width: 768px) {
+        main {
+          padding: 80px 24px 60px;
+        }
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-logo">PHARE</div>
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="bibliotheque.html">Bibliothèque</a>
+      </div>
+      <a href="bibliotheque.html">
+        <button class="nav-cta">Bibliothèque</button>
+      </a>
+    </nav>
+
+    <main>
+      <div class="upload-container">
+        <div class="page-header">
+          <div class="page-title-label">Contribution</div>
+          <div class="page-title">Ajouter un document</div>
+        </div>
+
+        <div class="msg msg-success" id="upload-success">
+          <i class="fa fa-check-circle" style="margin-right: 8px"></i>
+          Document uploadé avec succès !
+        </div>
+        <div class="msg msg-error-box" id="upload-error"></div>
+
+        <!-- DROP ZONE -->
+        <div class="drop-zone" id="drop-zone">
+          <input
+            type="file"
+            id="fichier"
+            accept=".pdf,.docx,.pptx,.jpg,.jpeg,.png"
+          />
+          <i class="fa fa-cloud-upload-alt" id="drop-icon"></i>
+          <div class="drop-text" id="drop-text">
+            Glisse ton fichier ici ou clique pour choisir
+          </div>
+          <div class="drop-sub" id="drop-sub">
+            PDF, DOCX, PPTX, Images acceptés
+          </div>
+        </div>
+        <div class="err-fichier" id="err-fichier">
+          <i class="fa fa-exclamation-circle"></i> Choisis un fichier avant de
+          continuer.
+        </div>
+
+        <!-- INFOS DOCUMENT -->
+        <div class="form-group">
+          <label>Nom du document *</label>
+          <input
+            type="text"
+            id="nom"
+            placeholder="Ex: Analyse Numérique Chapitre 1"
+          />
+          <div class="field-error" id="err-nom"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Description *</label>
+          <input
+            type="text"
+            id="description"
+            placeholder="Ex: Introduction aux méthodes numériques"
+          />
+          <div class="field-error" id="err-description"></div>
+        </div>
+
+        <hr class="form-divider" />
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Filière *</label>
+            <select id="filiere">
+              <option value="">-- Choisir --</option>
+              <option value="SI">SI</option>
+              <option value="SRI">SRI</option>
+              <option value="DA&IA">DA&IA</option>
+            </select>
+            <div class="field-error" id="err-filiere"></div>
+          </div>
+
+          <div class="form-group">
+            <label>Catégorie *</label>
+            <select id="categorie">
+              <option value="">-- Choisir --</option>
+              <option value="cours">Cours</option>
+              <option value="exercice">Exercice / TD</option>
+              <option value="resume">Résumé</option>
+              <option value="epreuve">Épreuve / Examen</option>
+            </select>
+            <div class="field-error" id="err-categorie"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Ton prénom *</label>
+          <input type="text" id="contributeur" placeholder="Ex: Kofi" />
+          <div class="field-error" id="err-contributeur"></div>
+        </div>
+
+        <div class="submit-row">
+          <a href="bibliotheque.html" class="back-link">
+            <i class="fa fa-arrow-left"></i> Retour à la bibliothèque
+          </a>
+          <button class="btn-primary" id="btn-upload" onclick="uploader()">
+            <i class="fa fa-upload"></i> Uploader
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-logo">PHARE</div>
+      <div class="footer-text">
+        Bibliothèque étudiante — Tous droits réservés
+      </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/upload.js"></script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+2026/05/27-03:05:20.736 23dc Reusing MANIFEST C:\Users\KNIGHTFF\PhareProject\whatsapp\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/05/27-03:05:20.736 23dc Recovering log #148
+2026/05/27-03:05:20.782 23dc Reusing old log C:\Users\KNIGHTFF\PhareProject\whatsapp\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000148.log 
+2026/05/27-03:05:20.782 23dc Delete type=2 #142
+2026/05/27-03:05:20.782 23dc Delete type=2 #143
+2026/05/27-03:05:20.782 23dc Delete type=2 #144
+2026/05/27-03:05:20.782 23dc Delete type=2 #145
+2026/05/27-03:05:20.782 23dc Delete type=2 #146
+2026/05/27-03:05:20.782 23dc Delete type=2 #147
+2026/05/27-03:05:20.782 23dc Delete type=2 #149
+2026/05/27-03:05:27.716 afc Level-0 table #158: started
+2026/05/27-03:05:27.749 afc Level-0 table #158: 1280473 bytes OK
+2026/05/27-03:05:27.753 afc Delete type=0 #148
+2026/05/27-03:05:28.025 35b8 Compacting 1@1 + 3@2 files
+2026/05/27-03:05:28.323 35b8 Generated table #159@1: 51436 keys, 2238691 bytes
+2026/05/27-03:05:28.434 35b8 Generated table #160@1: 21205 keys, 2171099 bytes
+2026/05/27-03:05:28.504 35b8 Generated table #161@1: 1602 keys, 2111497 bytes
+2026/05/27-03:05:28.524 35b8 Generated table #162@1: 7294 keys, 505664 bytes
+2026/05/27-03:05:28.524 35b8 Compacted 1@1 + 3@2 files => 7026951 bytes
+2026/05/27-03:05:28.525 35b8 compacted to: files[ 0 0 7 0 0 0 0 ]
+2026/05/27-03:05:28.526 35b8 Delete type=2 #150
+2026/05/27-03:05:28.526 35b8 Delete type=2 #151
+2026/05/27-03:05:28.526 35b8 Delete type=2 #152
+2026/05/27-03:05:28.526 35b8 Delete type=2 #158
+2026/05/27-03:07:13.936 afc Level-0 table #164: started
+2026/05/27-03:07:13.965 afc Level-0 table #164: 1493669 bytes OK
+2026/05/27-03:07:13.966 afc Delete type=0 #157
+2026/05/27-03:07:13.968 afc Compacting 1@1 + 7@2 files
+2026/05/27-03:07:14.055 afc Generated table #165@1: 60389 keys, 2249947 bytes
+2026/05/27-03:07:14.123 afc Generated table #166@1: 28817 keys, 2182771 bytes
+2026/05/27-03:07:14.152 afc Generated table #167@1: 1728 keys, 2112703 bytes
+2026/05/27-03:07:14.224 afc Generated table #168@1: 60730 keys, 2195985 bytes
+2026/05/27-03:07:14.224 afc Level-0 table #170: started
+2026/05/27-03:07:14.258 afc Level-0 table #170: 1351516 bytes OK
+2026/05/27-03:07:14.261 afc Delete type=0 #163
+2026/05/27-03:07:14.361 afc Generated table #171@1: 100276 keys, 2253445 bytes
+2026/05/27-03:07:14.461 afc Generated table #172@1: 100211 keys, 2254754 bytes
+2026/05/27-03:07:14.492 afc Generated table #173@1: 21540 keys, 695194 bytes
+2026/05/27-03:07:14.492 afc Compacted 1@1 + 7@2 files => 13944799 bytes
+2026/05/27-03:07:14.494 afc compacted to: files[ 1 0 7 0 0 0 0 ]
+2026/05/27-03:07:14.495 afc Delete type=2 #153
+2026/05/27-03:07:14.495 afc Delete type=2 #154
+2026/05/27-03:07:14.495 afc Delete type=2 #155
+2026/05/27-03:07:14.495 afc Delete type=2 #159
+2026/05/27-03:07:14.496 afc Delete type=2 #160
+2026/05/27-03:07:14.496 afc Delete type=2 #161
+2026/05/27-03:07:14.496 afc Delete type=2 #162
+2026/05/27-03:07:14.496 afc Delete type=2 #164
+2026/05/27-03:07:15.053 afc Moved #170 to level-1 1351516 bytes OK: files[ 0 1 7 0 0 0 0 ]
+2026/05/27-03:07:38.940 35b8 Compacting 1@1 + 7@2 files
+2026/05/27-03:07:39.066 35b8 Generated table #174@1: 75167 keys, 2262118 bytes
+2026/05/27-03:07:39.149 35b8 Generated table #175@1: 33108 keys, 2184491 bytes
+2026/05/27-03:07:39.189 35b8 Generated table #176@1: 10754 keys, 2136141 bytes
+2026/05/27-03:07:39.243 35b8 Generated table #177@1: 26048 keys, 2146774 bytes
+2026/05/27-03:07:39.343 35b8 Generated table #178@1: 101169 keys, 2255104 bytes
+2026/05/27-03:07:39.438 35b8 Generated table #179@1: 101149 keys, 2256163 bytes
+2026/05/27-03:07:39.514 35b8 Generated table #180@1: 82565 keys, 2052496 bytes
+2026/05/27-03:07:39.515 35b8 Compacted 1@1 + 7@2 files => 15293287 bytes
+2026/05/27-03:07:39.516 35b8 compacted to: files[ 0 0 7 0 0 0 0 ]
+2026/05/27-03:07:39.516 35b8 Delete type=2 #165
+2026/05/27-03:07:39.516 35b8 Delete type=2 #166
+2026/05/27-03:07:39.516 35b8 Delete type=2 #167
+2026/05/27-03:07:39.516 35b8 Delete type=2 #168
+2026/05/27-03:07:39.516 35b8 Delete type=2 #170
+2026/05/27-03:07:39.516 35b8 Delete type=2 #171
+2026/05/27-03:07:39.517 35b8 Delete type=2 #172
+2026/05/27-03:07:39.517 35b8 Delete type=2 #173

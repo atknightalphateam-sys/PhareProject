@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phare — Bibliothèque</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      main {
+        padding: 100px 60px 80px;
+      }
+      .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 48px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid var(--gray-mid);
+      }
+      .page-title-label {
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gray-text);
+        margin-bottom: 8px;
+      }
+      .page-title {
+        font-size: 40px;
+        font-weight: 700;
+      }
+      .upload-btn {
+        background: var(--black);
+        color: var(--white);
+        padding: 12px 28px;
+        font-size: 13px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: background 0.2s;
+      }
+      .upload-btn:hover {
+        background: #333;
+      }
+
+      .filieres {
+        display: flex;
+        gap: 0;
+        margin-bottom: 32px;
+        border-bottom: 2px solid var(--gray-mid);
+      }
+      .filiere-tab {
+        padding: 12px 28px;
+        font-size: 13px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background: none;
+        border: none;
+        border-bottom: 2px solid transparent;
+        margin-bottom: -2px;
+        cursor: pointer;
+        color: var(--gray-text);
+        transition: all 0.2s;
+      }
+      .filiere-tab.active {
+        color: var(--black);
+        border-bottom-color: var(--black);
+        font-weight: 600;
+      }
+      .filiere-tab:hover:not(.active) {
+        color: var(--black);
+      }
+
+      .filtres {
+        display: flex;
+        gap: 0;
+        margin-bottom: 28px;
+        border: 1px solid var(--gray-mid);
+        width: fit-content;
+      }
+      .filtre-btn {
+        padding: 10px 20px;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background: var(--white);
+        color: var(--gray-text);
+        border: none;
+        border-right: 1px solid var(--gray-mid);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .filtre-btn:last-child {
+        border-right: none;
+      }
+      .filtre-btn.active {
+        background: var(--black);
+        color: var(--white);
+      }
+      .filtre-btn:hover:not(.active) {
+        background: var(--gray-light);
+        color: var(--black);
+      }
+
+      .search-wrap {
+        position: relative;
+        margin-bottom: 40px;
+        max-width: 480px;
+      }
+      .search-wrap i {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gray-text);
+        font-size: 14px;
+      }
+      .search-wrap input {
+        width: 100%;
+        padding: 13px 16px 13px 44px;
+        border: 1px solid var(--gray-mid);
+        font-size: 14px;
+        outline: none;
+        background: var(--white);
+        color: var(--black);
+        transition: border 0.2s;
+      }
+      .search-wrap input:focus {
+        border-color: var(--black);
+      }
+
+      .docs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1px;
+        background: var(--gray-mid);
+        border: 1px solid var(--gray-mid);
+      }
+      .doc-card {
+        background: var(--white);
+        padding: 28px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transition: background 0.2s;
+      }
+      .doc-card:hover {
+        background: var(--gray-light);
+      }
+      .doc-card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .doc-format {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: var(--white);
+      }
+      .fmt-pdf {
+        background: #c0392b;
+      }
+      .fmt-docx {
+        background: #2980b9;
+      }
+      .fmt-pptx {
+        background: #d35400;
+      }
+      .fmt-img {
+        background: #27ae60;
+      }
+      .fmt-other {
+        background: #7f8c8d;
+      }
+      .doc-cat-badge {
+        font-size: 11px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--gray-text);
+        border: 1px solid var(--gray-mid);
+        padding: 3px 10px;
+      }
+      .doc-name {
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.4;
+      }
+      .doc-desc {
+        font-size: 13px;
+        color: var(--gray-text);
+        line-height: 1.5;
+      }
+      .doc-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 8px;
+      }
+      .doc-filiere {
+        font-size: 11px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--gray-text);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .doc-dl {
+        background: none;
+        border: 1px solid var(--gray-mid);
+        padding: 7px 16px;
+        font-size: 12px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--black);
+        transition: all 0.2s;
+        letter-spacing: 0.5px;
+      }
+      .doc-dl:hover {
+        background: var(--black);
+        color: var(--white);
+        border-color: var(--black);
+      }
+      .empty-state {
+        padding: 80px;
+        text-align: center;
+        color: var(--gray-text);
+        grid-column: 1/-1;
+        background: var(--white);
+      }
+      .empty-state i {
+        font-size: 28px;
+        margin-bottom: 16px;
+        display: block;
+      }
+      .empty-state p {
+        font-size: 14px;
+      }
+
+      @media (max-width: 768px) {
+        main {
+          padding: 80px 24px 60px;
+        }
+        .page-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+        }
+        .filieres {
+          overflow-x: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-logo">PHARE</div>
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="bibliotheque.html">Bibliothèque</a>
+      </div>
+      <button class="nav-cta" onclick="demanderMdp()">
+        <i class="fa fa-upload" style="margin-right: 6px"></i> Uploader
+      </button>
+    </nav>
+
+    <main>
+      <div class="page-header">
+        <div>
+          <div class="page-title-label">Ressources</div>
+          <div class="page-title">Bibliothèque</div>
+        </div>
+        <button class="upload-btn" onclick="demanderMdp()">
+          <i class="fa fa-plus"></i> Ajouter un document
+        </button>
+      </div>
+
+      <div class="filieres">
+        <button class="filiere-tab active" onclick="setFiliere('toutes', this)">
+          Toutes
+        </button>
+        <button class="filiere-tab" onclick="setFiliere('SI', this)">SI</button>
+        <button class="filiere-tab" onclick="setFiliere('SRI', this)">
+          SRI
+        </button>
+        <button class="filiere-tab" onclick="setFiliere('DA&IA', this)">
+          DA&IA
+        </button>
+      </div>
+
+      <div class="filtres">
+        <button class="filtre-btn active" onclick="setCategorie('tous', this)">
+          Tous
+        </button>
+        <button class="filtre-btn" onclick="setCategorie('cours', this)">
+          Cours
+        </button>
+        <button class="filtre-btn" onclick="setCategorie('exercice', this)">
+          Exercices
+        </button>
+        <button class="filtre-btn" onclick="setCategorie('resume', this)">
+          Résumés
+        </button>
+        <button class="filtre-btn" onclick="setCategorie('epreuve', this)">
+          Épreuves
+        </button>
+      </div>
+
+      <div class="search-wrap">
+        <i class="fa fa-search"></i>
+        <input
+          type="text"
+          id="recherche"
+          placeholder="Rechercher un document..."
+          oninput="filtrer()"
+        />
+      </div>
+
+      <div class="docs-grid" id="docs-grid">
+        <div class="empty-state">
+          <i class="fa fa-spinner fa-spin"></i>
+          <p>Chargement des documents...</p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-logo">PHARE</div>
+      <div class="footer-text">
+        Bibliothèque étudiante — Tous droits réservés
+      </div>
+    </footer>
+
+    <!-- MODAL MOT DE PASSE -->
+    <div class="overlay" id="overlay-pwd">
+      <div class="modal" style="max-width: 380px">
+        <button class="modal-close" onclick="fermerPwd()">
+          <i class="fa fa-times"></i>
+        </button>
+        <h2>Accès restreint</h2>
+        <p>Entre le mot de passe pour uploader un document.</p>
+        <div class="msg msg-error" id="pwd-error">Mot de passe incorrect.</div>
+        <div class="form-group">
+          <label>Mot de passe</label>
+          <input
+            type="password"
+            id="pwd-input"
+            placeholder="••••••••"
+            onkeydown="if (event.key === 'Enter') verifierMdp();"
+          />
+        </div>
+        <div class="modal-btns">
+          <button class="btn-cancel" onclick="fermerPwd()">Annuler</button>
+          <button class="btn-primary" onclick="verifierMdp()">Accéder</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/bibliotheque.js"></script>
+    <script>
+      function demanderMdp() {
+        document.getElementById("overlay-pwd").classList.add("open");
+        setTimeout(() => document.getElementById("pwd-input").focus(), 100);
+      }
+      function fermerPwd() {
+        document.getElementById("overlay-pwd").classList.remove("open");
+        document.getElementById("pwd-input").value = "";
+        document.getElementById("pwd-error").style.display = "none";
+      }
+      function verifierMdp() {
+        const val = document.getElementById("pwd-input").value;
+        if (val === MOT_DE_PASSE) {
+          fermerPwd();
+          window.location.href = "upload.html";
+        } else {
+          document.getElementById("pwd-error").style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>

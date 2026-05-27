@@ -1,0 +1,4 @@
+const SUPABASE_URL = "https://gyoqpfjaodrtxeobaozr.supabase.co";
+const SUPABASE_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd5b3FwZmphb2RydHhlb2Jhb3pyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc0MDgwNjEsImV4cCI6MjA5Mjk4NDA2MX0.z4aBivNMC4dnnU_OJAC7Af0yl5P9sZt9f15EnxgjWCk";
+const MOT_DE_PASSE = "phare2025";

@@ -1,0 +1,6 @@
+2026/05/27-03:05:19.641 359c Reusing MANIFEST C:\Users\KNIGHTFF\PhareProject\whatsapp\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
+2026/05/27-03:05:19.661 359c Recovering log #4
+2026/05/27-03:05:19.675 359c Reusing old log C:\Users\KNIGHTFF\PhareProject\whatsapp\.wwebjs_auth\session\Default\Local Storage\leveldb/000004.log 
+2026/05/27-03:05:36.637 4288 Level-0 table #8: started
+2026/05/27-03:05:36.645 4288 Level-0 table #8: 12273 bytes OK
+2026/05/27-03:05:36.648 4288 Delete type=0 #4

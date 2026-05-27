@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phare — Bibliothèque étudiante</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      #home {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--black);
+        color: var(--white);
+        text-align: center;
+        padding: 120px 60px 80px;
+      }
+      .hero-content {
+        max-width: 700px;
+      }
+      .hero-tag {
+        display: inline-block;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 6px 16px;
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 32px;
+      }
+      .hero-title {
+        font-size: clamp(42px, 7vw, 80px);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 24px;
+      }
+      .hero-title span {
+        color: rgba(255, 255, 255, 0.35);
+      }
+      .hero-sub {
+        font-size: 17px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 48px;
+        line-height: 1.6;
+      }
+      .hero-btn {
+        display: inline-block;
+        background: var(--white);
+        color: var(--black);
+        padding: 16px 40px;
+        font-size: 13px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s;
+      }
+      .hero-btn:hover {
+        background: #e0e0e0;
+      }
+      .hero-scroll {
+        position: absolute;
+        bottom: 32px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      #home {
+        position: relative;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-bottom: 1px solid var(--gray-mid);
+      }
+      .stat {
+        padding: 48px 40px;
+        border-right: 1px solid var(--gray-mid);
+        text-align: center;
+      }
+      .stat:last-child {
+        border-right: none;
+      }
+      .stat-num {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .stat-label {
+        font-size: 12px;
+        color: var(--gray-text);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .features {
+        padding: 100px 60px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 48px;
+      }
+      .feature-icon {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      .feature h3 {
+        font-size: 17px;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+      .feature p {
+        font-size: 14px;
+        color: var(--gray-text);
+        line-height: 1.7;
+      }
+
+      .cta-section {
+        background: var(--black);
+        color: var(--white);
+        padding: 100px 60px;
+        text-align: center;
+      }
+      .cta-section h2 {
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+      .cta-section p {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 40px;
+      }
+
+      @media (max-width: 768px) {
+        #home {
+          padding: 100px 24px 60px;
+        }
+        .stats {
+          grid-template-columns: 1fr;
+        }
+        .stat {
+          border-right: none;
+          border-bottom: 1px solid var(--gray-mid);
+        }
+        .features {
+          grid-template-columns: 1fr;
+          padding: 60px 24px;
+        }
+        .cta-section {
+          padding: 60px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-logo">PHARE</div>
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="bibliotheque.html">Bibliothèque</a>
+      </div>
+      <a href="bibliotheque.html">
+        <button class="nav-cta">Accéder</button>
+      </a>
+    </nav>
+
+    <section id="home">
+      <div class="hero-content">
+        <div class="hero-tag">Bibliothèque étudiante</div>
+        <h1 class="hero-title">
+          Tes cours,<br /><span>toujours</span> à portée.
+        </h1>
+        <p class="hero-sub">
+          Retrouve instantanément tous les documents de ta filière — cours,
+          exercices, résumés et épreuves. Accessible aussi sur WhatsApp.
+        </p>
+        <a href="bibliotheque.html">
+          <button class="hero-btn">Accéder à la bibliothèque</button>
+        </a>
+      </div>
+      <div class="hero-scroll">
+        <span>Scroll</span>
+        <i class="fa fa-arrow-down"></i>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">SI</div>
+        <div class="stat-label">Systèmes d'information</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">SRI</div>
+        <div class="stat-label">Sécurité & Réseaux</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">DA&IA</div>
+        <div class="stat-label">Data & Intelligence Artificielle</div>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon"><i class="fa fa-search"></i></div>
+        <h3>Recherche intelligente</h3>
+        <p>
+          Trouve n'importe quel document en quelques secondes grâce à la
+          recherche par nom, description ou filière.
+        </p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><i class="fa fa-upload"></i></div>
+        <h3>Upload facile</h3>
+        <p>
+          Glisse et dépose tes documents directement sur le site. PDF, Word,
+          PowerPoint et images sont acceptés.
+        </p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><i class="fa fa-comments"></i></div>
+        <h3>Agent WhatsApp</h3>
+        <p>
+          Demande un document directement sur WhatsApp. Phare te l'envoie
+          instantanément, 24h/24.
+        </p>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <h2>Prêt à accéder aux ressources ?</h2>
+      <p>
+        Tous les cours, exercices et épreuves de ta filière en un seul endroit.
+      </p>
+      <a href="bibliotheque.html">
+        <button class="hero-btn">Voir la bibliothèque</button>
+      </a>
+    </div>
+
+    <footer>
+      <div class="footer-logo">PHARE</div>
+      <div class="footer-text">
+        Bibliothèque étudiante — Tous droits réservés
+      </div>
+    </footer>
+  </body>
+</html>
