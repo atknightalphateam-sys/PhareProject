@@ -1,5 +1,5 @@
 const { Client, LocalAuth, MessageMedia } = require("whatsapp-web.js");
-const qrcode = require("qrcode-terminal");
+const QRCode = require("qrcode");
 const client = new Client({
   authStrategy: new LocalAuth(),
   puppeteer: {
@@ -9,9 +9,9 @@ const client = new Client({
   },
 });
 const attente = {};
-client.on("qr", (qr) => {
-  console.log("\n📱 Scanne ce QR code avec WhatsApp :\n");
-  qrcode.generate(qr, { small: true });
+client.on("qr", async (qr) => {
+  const url = await QRCode.toDataURL(qr);
+  console.log("QR CODE URL:", url);
 });
 client.on("ready", () => {
   console.log("\n✅ Phare est connecté à WhatsApp !");
