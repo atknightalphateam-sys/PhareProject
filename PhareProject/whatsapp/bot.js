@@ -129,5 +129,8 @@ async function demanderAPhare(demande) {
     return { message: "Désolé, problème technique. Réessaie." };
   }
 }
+process.on('unhandledRejection', (err) => {
+  console.error('Erreur non gérée:', err.message);
+});
 
 client.initialize();
